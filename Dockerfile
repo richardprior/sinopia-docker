@@ -32,11 +32,8 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc
 
-RUN adduser --disabled-password --gecos "" sinopia
 RUN mkdir -p /opt/sinopia/storage
-RUN chown -R sinopia:sinopia /opt/sinopia
 
-USER sinopia
 WORKDIR /opt/sinopia
 
 RUN cd /opt/sinopia && npm install js-yaml sinopia
